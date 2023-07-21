@@ -1,0 +1,25 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Basic Demo",
+    "description": "Test Demo Schema",
+    "$metadata": {
+        "version": "1.0.0",
+        "discoverable": true
+    },
+    "required": [ "name" ],
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "age": {
+            "type": "integer"
+        },
+        "gender": {
+            "type": "string"
+        },
+        "credit": {
+            "type": "integer"
+        }
+    },
+    "type": "object"
+}
