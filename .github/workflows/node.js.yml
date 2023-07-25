@@ -4,9 +4,6 @@ on:
   push:
     branches: [main]
 
-jobs:
-  release-docker-image:
-    runs-on: ubuntu-latest
 
     env:
       IMAGE_REPOSITORY: demo-script
