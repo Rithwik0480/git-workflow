@@ -2,7 +2,7 @@ name: release
 
 on:
   push:
-    branches: [develop]
+    branches: [main]
 
 jobs:
   release-docker-image:
