@@ -23,7 +23,7 @@ jobs:
             -u ${{ env.DOCKER_USER }} \
             -p "${{ secrets.DOCKER_PASSWORD }}"
    
-- name: Build and push Docker Image
+    - name: Build and push Docker Image
         run: |
           # Get the branch name
           DOCKER_BRANCH=${{ github.ref }}
