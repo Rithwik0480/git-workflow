@@ -49,5 +49,4 @@ jobs:
             --tag ${{ env.IMAGE_REPOSITORY }}:${DOCKER_BRANCH} \
             --tag ${{ env.DOCKER_SERVER }}/${{ env.DOCKER_USER }}/${{ env.IMAGE_REPOSITORY }}:${DOCKER_BRANCH} \
             --tag ${{ env.DOCKER_SERVER }}/${{ env.DOCKER_USER }}/${{ env.IMAGE_REPOSITORY }}:${IMAGE_TAG} \
-            --platform linux/amd64,linux/arm64 \
             .
