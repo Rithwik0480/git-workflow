@@ -1,8 +1,3 @@
-# Buildx Platforms:
-#
-# `linux/amd64` - x86-64 Linux OS
-# `linux/arm64` - 64-bit ARM architecture.
-#
 
 name: docker
 
