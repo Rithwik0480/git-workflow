@@ -1,31 +1,29 @@
-name: ci
+#dckr_pat_svduM6YQtXFF2SaVMAuxLcl8Nzg
+name: release
 on:
   push:
-    branches: [ "main" ]
-  paths-ignore:
-      - "**.md"
+    branches: [main]
   pull_request:
-    branches: [ "main" ]
-  paths-ignore:
-      - "doc/**"
-      - "**.md"
-
-defaults:
-  run:
-    shell: bash
+    branches: [main]
 
 jobs:
-  develop-pr-submit:
+  release-docker-image:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+
+    env:
+      IMAGE_REPOSITORY: rithwwik/demo-script
+      IMAGE_TAG: latest
+      #DOCKER_SERVER: docker.io
+      DOCKER_USER: rithwwik
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
       - name: Authenticate with DockerHub
         run: |
-              secrets:
-                dockerhub-username: ${{ secrets.DOCKERHUB_USERNAME }}
-                dockerhub-token: ${{ secrets.DOCKERHUB_TOKEN }}
+          # Authenticate with Dockerhub using a Docker password secret
+          docker login \
+            -u ${{ env.DOCKER_USER }} \
+            -p "${{ secrets.DOCKER_TOKEN }}"
+
+     
