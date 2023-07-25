@@ -13,7 +13,7 @@ jobs:
     env:
       IMAGE_REPOSITORY: rithwwik/demo-script
       IMAGE_TAG: latest
-      #DOCKER_SERVER: docker.io
+      DOCKER_SERVER: docker.io
       DOCKER_USER: rithwwik
 
     steps:
