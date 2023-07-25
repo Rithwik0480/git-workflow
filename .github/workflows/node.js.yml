@@ -1,14 +1,15 @@
 name: release
+
 on:
   push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+    branches: [develop]
+
 jobs:
   release-docker-image:
     runs-on: ubuntu-latest
+
     env:
-      IMAGE_REPOSITORY: rithwwik/demo-script
+      IMAGE_REPOSITORY: demo-script
       IMAGE_TAG: latest
       DOCKER_SERVER: docker.io
       DOCKER_USER: rithwwik
