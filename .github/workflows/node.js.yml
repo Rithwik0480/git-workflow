@@ -24,6 +24,6 @@ jobs:
           # Authenticate with Dockerhub using a Docker password secret
           docker login \
             -u ${{ env.DOCKER_USER }} \
-            -p "${{ secrets.DOCKER_TOKEN }}"
+            -p "${{ secrets.DOCKER_PASSWORD }}"
 
      
