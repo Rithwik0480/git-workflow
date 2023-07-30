@@ -35,18 +35,8 @@ jobs:
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build and Push Docker Image
-        run: |
-          # Get the branch name
-          DOCKER_BRANCH=${{ github.ref }}
-          DOCKER_BRANCH=${DOCKER_BRANCH/refs\/heads\//}
+      - name: Build Docker image
+        run: docker build -t ${{ secrets.DOCKER_USER }}/${{ env.IMAGE_REPOSITORY }}:latest .
 
-          # Build the Docker image with Buildx
-          docker buildx build \
-            --push \
-            --no-cache \
-            --file Dockerfile \
-            --tag ${{ env.IMAGE_REPOSITORY }}:${DOCKER_BRANCH} \
-            --tag ${{ env.DOCKER_SERVER }}/${{ env.DOCKER_USER }}/${{ env.IMAGE_REPOSITORY }}:${DOCKER_BRANCH} \
-            --tag ${{ env.DOCKER_SERVER }}/${{ env.DOCKER_USER }}/${{ env.IMAGE_REPOSITORY }}:${IMAGE_TAG} \
-            .
+      - name: Push Docker image to Docker Hub
+        run: docker push ${{ secrets.DOCKER_USER }}/{{ env.IMAGE_REPOSITORY }}:latest
