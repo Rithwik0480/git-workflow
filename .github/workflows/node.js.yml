@@ -31,4 +31,4 @@ jobs:
         run: docker build . --file Dockerfile --tag rithwwik/demo-script:latest
 
       - name: Push Docker image to Docker Hub
-        run: docker push ${{ secrets.DOCKER_USER }}/{{ env.IMAGE_REPOSITORY }}
+        run: docker push rithwik/demo-script
