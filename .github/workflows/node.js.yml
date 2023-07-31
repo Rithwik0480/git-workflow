@@ -36,7 +36,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Docker image
-        run: docker build -t ${{ secrets.DOCKER_USER }}/${{ env.IMAGE_REPOSITORY }}:latest .
+        run: docker build -t ${{ secrets.DOCKER_USER }}/${{ env.IMAGE_REPOSITORY }} .
 
       - name: Push Docker image to Docker Hub
-        run: docker push ${{ secrets.DOCKER_USER }}/{{ env.IMAGE_REPOSITORY }}:latest
+        run: docker push ${{ secrets.DOCKER_USER }}/{{ env.IMAGE_REPOSITORY }}
